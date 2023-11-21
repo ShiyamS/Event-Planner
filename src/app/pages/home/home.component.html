@@ -14,7 +14,7 @@
 
       </ul>
       <form class="d-flex">
-        <button class="btn btn-outline-primary round-button mx-2" type="button">Login</button>
+        <button class="btn btn-outline-primary round-button mx-2" type="button" (click)="openLogin()">Login</button>
         <button class="btn btn-success round-button" type="button">Register</button>
       </form>
     </div>
@@ -649,3 +649,23 @@
     </div>
   </div>
 </section>
+<div class="modal" #modal id="myModal">
+  <div class="form">
+    <form class="register-form" *ngIf="!isLoginView">
+      <h1>Sign Up</h1>
+      <input type="text" placeholder="name" />
+      <input type="password" placeholder="password" />
+      <input type="text" placeholder="email address" />
+      <button>create</button>
+      <p class="message" (click)="isLoginView = true">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form" *ngIf="isLoginView">
+      <h1>Login</h1>
+      <br>
+      <input type="text" placeholder="username" />
+      <input type="password" placeholder="password" />
+      <button>login</button>
+      <p class="message" (click)="isLoginView = false ">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
